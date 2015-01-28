@@ -16,10 +16,15 @@ class PluginDocs_ActionDocs extends ActionPlugin {
     {
         $this->SetDefaultEvent('index');
 
+        // Залогиненый пользователь
+        $user = $this->User_GetUserCurrent();
+
         // Получаем компоненты с документацией
         $this->components = $this->getDocumentedComponents();
 
-        if ( ! $this->components )
+        // Проверяем наличие компонентов и
+        // разрешаем доступ только администраторам
+        if ( ! $this->components || ! $user || ! $user->isAdministrator() )
         {
             return parent::EventNotFound();
         }
