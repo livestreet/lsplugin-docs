@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>
+        <lang name="default">Docs</lang>
+    </name>
+    <author>
+        <lang name="default">LiveStreet Developers Team</lang>
+    </author>
+    <homepage>http://livestreet.ru</homepage>
+    <version>1.0.0</version>
+    <settings>{docs}</settings>
+    <requires>
+        <livestreet>2.0</livestreet>
+        <plugins>
+        </plugins>
+    </requires>
+    <description>
+        <lang name="default">Просмотр документации компонентов</lang>
+    </description>
+</plugin>
