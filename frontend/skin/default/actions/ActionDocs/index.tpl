@@ -13,6 +13,8 @@
     {/function}
 
     {function test_example}
+        {$code = $code|default:$content}
+
         <div class="test-example">
             <div class="test-example-title">Пример</div>
 
@@ -20,7 +22,7 @@
                 {$content}
             </div>
 
-            {if $code|default:$content}
+            {if $code}
                 <div class="test-example-code">
                     <pre><code>{$code|escape}</code></pre>
                 </div>
