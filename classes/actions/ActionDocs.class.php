@@ -77,15 +77,10 @@ class PluginDocs_ActionDocs extends ActionPlugin {
      */
     private function getDocumentedComponents()
     {
-        $components = array();
-
-        foreach (Config::Get('components') as $component)
-        {
-            if ($this->isDocumented($component))
-            {
-                $components[] = $component;
-            }
-        }
+        // Отфильтровываем компоненты с документацией
+        $components = array_filter(Config::Get('components'), function($component) {
+            return $this->isDocumented($component);
+        });
 
         // Сортируем компоненты в алфавитном порядке
         sort($components);

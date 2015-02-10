@@ -2,17 +2,11 @@
  * Навигация
  *}
 
-{extends 'components/block/block.tpl'}
-
-{block 'block_options' append}
-    {$mods = 'nopadding transparent'}
-{/block}
-
-{block 'block_content'}
+{capture 'block_content'}
     {$items = []}
 
     {foreach $components as $component}
-        {$items[] = [ 'name' => $component, 'url' => "{router page='docs'}{$component}", 'text' => ucfirst($component) ]}
+        {$items[] = [ 'name' => $component, 'url' => "{router page='docs'}{$component}", 'text' => ucfirst(str_replace('-', ' ', $component)) ]}
     {/foreach}
 
     {component 'nav'
@@ -21,4 +15,6 @@
         mods       = 'pills stacked'
         classes    = 'user-nav'
         items      = $items}
-{/block}
+{/capture}
+
+{component 'block' mods='nopadding transparent' content=$smarty.capture.block_content}
