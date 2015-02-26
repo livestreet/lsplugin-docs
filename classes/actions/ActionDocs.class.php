@@ -7,7 +7,7 @@ class PluginDocs_ActionDocs extends ActionPlugin {
      *
      * @var string
      */
-    private $guide = '/docs/guide.tpl';
+    private $guide = 'docs/guide';
 
     /**
      * Инициализация экшена
@@ -96,7 +96,7 @@ class PluginDocs_ActionDocs extends ActionPlugin {
      */
     private function isDocumented($component)
     {
-        return $this->Viewer_TemplateExists($this->getGuidePath($component));
+        return $this->getGuidePath($component);
     }
 
     /**
@@ -107,7 +107,7 @@ class PluginDocs_ActionDocs extends ActionPlugin {
      */
     private function getGuidePath($component)
     {
-        return $this->Component_GetPath($component) . $this->guide;
+        return $this->Component_GetTemplatePath($component, $this->guide);
     }
 
     /**
