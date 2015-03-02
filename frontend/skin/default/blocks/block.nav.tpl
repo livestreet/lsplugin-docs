@@ -5,13 +5,13 @@
 {capture 'block_content'}
     {$items = []}
 
-    {foreach $components as $component}
+    {foreach $docsComponents as $component}
         {$items[] = [ 'name' => $component, 'url' => "{router page='docs'}{$component}", 'text' => ucfirst(str_replace('-', ' ', $component)) ]}
     {/foreach}
 
     {component 'nav'
         name       = 'docs'
-        activeItem = $current
+        activeItem = $docsCurrentComponent
         mods       = 'pills stacked'
         classes    = 'user-nav'
         items      = $items}
