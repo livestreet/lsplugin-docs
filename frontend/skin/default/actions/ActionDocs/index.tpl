@@ -10,9 +10,8 @@
 {block 'layout_content'}
     <script>
         jQuery(function($) {
-            $('.js-plugin-docs-api-file').lsAccordion({
-                collapsible: true,
-                active: false
+            $('.js-plugin-docs-api-file').lsDetailsGroup({
+                single: false
             });
         });
     </script>
@@ -86,7 +85,7 @@
     {/function}
 
     {function plugin_docs_api_file title='' items=[]}
-        {component 'accordion' classes='js-plugin-docs-api-file' items=$items}
+        {component 'details' template='group' classes='js-plugin-docs-api-file' items=$items}
     {/function}
 
     <h1>Компонент <span>{ucfirst($docsCurrentComponent)}</span></h1>

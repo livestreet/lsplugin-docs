@@ -12,7 +12,7 @@
     {component 'nav'
         name       = 'docs'
         activeItem = $docsCurrentComponent
-        mods       = 'pills stacked'
+        mods       = 'stacked'
         classes    = 'user-nav'
         items      = $items}
 {/capture}
