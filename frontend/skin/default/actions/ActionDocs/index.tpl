@@ -43,7 +43,7 @@
     {/function}
 
     {function plugin_docs_params params=[]}
-        <table class="table">
+        <table class="ls-table">
             <thead>
                 <tr>
                     <th>Параметр</th>
@@ -66,7 +66,7 @@
     {/function}
 
     {function plugin_docs_params_short params=[]}
-        <table class="table">
+        <table class="ls-table">
             <thead>
                 <tr>
                     <th>Параметр</th>
