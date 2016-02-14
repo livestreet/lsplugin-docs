@@ -1,11 +1,12 @@
 {**
  * Главная
- *
- * @parama array $topics
- * @parama array $paging
  *}
 
-{extends 'layouts/layout.base.tpl'}
+{extends "{$aTemplatePathPlugin.docs}layouts/layout.base.tpl"}
+
+{block 'layout_options' append}
+    {$classes = "$classes p-docs-page"}
+{/block}
 
 {block 'layout_content'}
     <script>
@@ -17,21 +18,21 @@
     </script>
 
     {function test_heading}
-        <br><h2>{$text}</h2>
+        <div class="p-docs-heading p-docs-heading-h2">{$text}</div>
     {/function}
 
     {function test_example}
         {$code = $code|default:$content}
 
-        <div class="test-example">
-            <div class="test-example-title">Пример</div>
+        <div class="p-docs-example">
+            <div class="p-docs-example-title">Пример</div>
 
-            <div class="test-example-content">
+            <div class="p-docs-example-content">
                 {$content}
             </div>
 
             {if $code}
-                <div class="test-example-code">
+                <div class="p-docs-example-code">
                     <pre><code>{$code|escape}</code></pre>
                 </div>
             {/if}
@@ -88,7 +89,10 @@
         {component 'details' template='group' classes='js-plugin-docs-api-file' items=$items}
     {/function}
 
-    <h1>Компонент <span>{ucfirst($docsCurrentComponent)}</span></h1>
+    <div class="p-docs-heading p-docs-component-title">
+        Компонент
+        <span class="p-docs-component-name">{ucfirst($docsCurrentComponent)}</span>
+    </div>
 
     {component 'nav'
         name       = 'plugin_docs'

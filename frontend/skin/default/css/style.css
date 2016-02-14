@@ -1,14 +1,45 @@
-.test-example {
+/**
+ * Base
+ */
+body.p-docs-page {
+    background-color: #f7f7f7;
+}
+
+/**
+ * Typography
+ */
+.p-docs-heading {
+    font: 300 16px/1.3em 'Open Sans', sans-serif;
+    margin-bottom: 0;
+}
+.p-docs-heading.p-docs-heading-h2 {
+    font-size: 25px;
+    padding-top: 20px;
+    margin-bottom: 15px;
+}
+.p-docs-heading.p-docs-component-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #aaa;
+}
+.p-docs-component-name {
+    color: #333;
+}
+
+/**
+ * Example
+ */
+.p-docs-example {
     margin-bottom: 30px;
     border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
 }
-.test-example:last-child {
+.p-docs-example:last-child {
     margin-bottom: 0;
 }
 
-.test-example-title {
+.p-docs-example-title {
     padding: 20px 20px 0;
     text-transform: uppercase;
     font-weight: bold;
@@ -16,19 +47,87 @@
     color: #ccc;
 }
 
-.test-example-content {
+.p-docs-example-content {
     padding: 20px;
 }
 
-.test-example-code pre {
+.p-docs-example-code pre {
     padding: 0;
     margin: 0;
     border: none;
     background: none;
 }
-.test-example-code pre code {
+.p-docs-example-code pre code {
+    display: block;
     padding: 20px;
     border: none;
     border-top: 1px solid #eee;
     background: #fafafa;
+}
+
+/**
+ * Layout
+ */
+.p-docs-layout-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 10px;
+}
+
+.p-docs-layout-header {
+    margin-bottom: 50px;
+}
+.p-docs-layout-header-title {
+    color: #333;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.p-docs-layout-header-subtitle {
+    font-size: 20px;
+    margin-bottom: 0;
+    opacity: .7;
+}
+
+.p-docs-layout-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+.p-docs-layout-wrapper > * {
+    box-sizing: border-box;
+}
+
+.p-docs-layout-content {
+    flex: 1;
+    padding: 35px 50px 50px;
+    margin-right: 50px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
+}
+.p-docs-layout-sidebar {
+    width: 250px;
+}
+
+/**
+ * Nav
+ */
+.p-docs-nav {
+    font: 13px/1.3em Arial, sans-serif;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #fff;
+}
+.p-docs-nav-item:not(:last-child) {
+    border-bottom: 1px solid #f5f5f5;
+}
+.p-docs-nav-item-link {
+    color: #1A80DB;
+    display: block;
+    padding: 11px 12px;
+}
+.p-docs-nav-item.active .p-docs-nav-item-link,
+.p-docs-nav-item-link:hover {
+    color: #F5F5F5;
+    background: #8B84EF;
 }

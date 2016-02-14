@@ -65,7 +65,7 @@ class PluginDocs_ActionDocs extends ActionPlugin {
         $navActiveItem = $this->GetParamEventMatch(0, 0) ?: 'guide';
 
         // Добавляем блок с навигацией в сайдбар
-        $this->Viewer_AddBlock('right', 'nav', array('plugin' => Plugin::GetPluginCode($this)));
+        $this->Viewer_AddBlock('sidebar', 'nav', array('plugin' => Plugin::GetPluginCode($this)));
 
         // Устанавливаем переменные шаблона
         $this->Viewer_Assign('docsCurrentComponent', $component);
@@ -87,9 +87,7 @@ class PluginDocs_ActionDocs extends ActionPlugin {
     private function getDocumentedComponents()
     {
         // Отфильтровываем компоненты с документацией
-        $components = array_filter(Config::Get('components'), function($component) {
-            return $this->isDocumented($component);
-        });
+        $components = array_filter(Config::Get('components'), array($this, 'isDocumented'));
 
         // Сортируем компоненты в алфавитном порядке
         sort($components);

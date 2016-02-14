@@ -2,19 +2,12 @@
  * Навигация
  *}
 
-{capture 'block_content'}
-    {$items = []}
-
+<ul class="p-docs-nav">
     {foreach $docsComponents as $component}
-        {$items[] = [ 'name' => $component, 'url' => "{router page='docs'}{$component}", 'text' => ucfirst(str_replace('-', ' ', $component)) ]}
+        <li class="p-docs-nav-item {if $docsCurrentComponent == $component}active{/if}">
+            <a href="{router page='docs'}{$component}" class="p-docs-nav-item-link">
+                {ucfirst(str_replace('-', ' ', $component))}
+            </a>
+        </li>
     {/foreach}
-
-    {component 'nav'
-        name       = 'docs'
-        activeItem = $docsCurrentComponent
-        mods       = 'stacked'
-        classes    = 'user-nav'
-        items      = $items}
-{/capture}
-
-{component 'block' mods='nopadding transparent' content=$smarty.capture.block_content}
+</ul>
