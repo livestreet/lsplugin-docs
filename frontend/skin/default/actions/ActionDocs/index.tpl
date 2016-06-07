@@ -21,9 +21,7 @@
         <div class="p-docs-heading p-docs-heading-h2">{$text}</div>
     {/function}
 
-    {function test_example}
-        {$code = $code|default:$content}
-
+    {function test_example code='' content=''}
         <div class="p-docs-example">
             <div class="p-docs-example-title">Пример</div>
 
@@ -91,7 +89,7 @@
 
     <div class="p-docs-heading p-docs-component-title">
         Компонент
-        <span class="p-docs-component-name">{ucfirst($docsCurrentComponent)}</span>
+        <span class="p-docs-component-name">{$docsCurrentComponent}</span>
     </div>
 
     {component 'nav'
