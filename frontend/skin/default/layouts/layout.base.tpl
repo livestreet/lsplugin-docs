@@ -17,6 +17,10 @@
 
 {block 'layout_body'}
     <div class="p-docs-layout-container">
+        <div class="p-docs-layout-header-home">
+            <a href="{Router::GetPath('/')}" target="_blank">Перейти на сайт</a>
+        </div>
+
         <header class="p-docs-layout-header">
             <div class="p-docs-heading p-docs-layout-header-title">Документация</div>
             <div class="p-docs-heading p-docs-layout-header-subtitle">Компоненты</div>
