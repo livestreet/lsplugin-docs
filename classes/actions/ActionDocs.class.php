@@ -7,12 +7,12 @@ class PluginDocs_ActionDocs extends ActionPlugin {
      *
      * @var array
      */
-    private static $docs = array(
+    private static $docs = [
         // Док-ия
         'guide' => 'docs/guide',
         // API компонента
         'api' => 'docs/api'
-    );
+    ];
 
     /**
      * Инициализация экшена
@@ -65,16 +65,16 @@ class PluginDocs_ActionDocs extends ActionPlugin {
         $navActiveItem = $this->GetParamEventMatch(0, 0) ?: 'guide';
 
         // Добавляем блок с навигацией в сайдбар
-        $this->Viewer_AddBlock('sidebar', 'nav', array('plugin' => Plugin::GetPluginCode($this)));
+        $this->Viewer_AddBlock('sidebar', 'nav', [ 'plugin' => Plugin::GetPluginCode($this) ]);
 
         // Устанавливаем переменные шаблона
         $this->Viewer_Assign('docsCurrentComponent', $component);
         $this->Viewer_Assign('docsPath', $this->getDocPath($component, $navActiveItem));
         $this->Viewer_Assign('docsNavActiveItem', $navActiveItem);
-        $this->Viewer_Assign('docsNavItems', array(
+        $this->Viewer_Assign('docsNavItems', [
             [ 'name' => 'guide', 'url' => $this->getDocWebPath($component, 'guide'), 'text' => 'Guide' ],
             [ 'name' => 'api', 'url' => $this->getDocWebPath($component, 'api'), 'text' => 'API', 'is_enabled' => $this->getDocPath($component, 'api') ],
-        ));
+        ]);
 
         $this->SetTemplateAction('index');
     }
@@ -87,7 +87,7 @@ class PluginDocs_ActionDocs extends ActionPlugin {
     private function getDocumentedComponents()
     {
         // Отфильтровываем компоненты с документацией
-        $components = array_filter(Config::Get('components'), array($this, 'isDocumented'));
+        $components = array_filter(Config::Get('components'), [ $this, 'isDocumented' ]);
 
         // Сортируем компоненты в алфавитном порядке
         sort($components);
