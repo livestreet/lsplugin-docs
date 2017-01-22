@@ -10,7 +10,7 @@
 
 {block 'layout_content'}
     <script>
-        jQuery(function($) {
+        domReady(function() {
             $('.js-plugin-docs-api-file').lsDetailsGroup({
                 single: false
             });

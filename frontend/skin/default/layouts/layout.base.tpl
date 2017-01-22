@@ -8,14 +8,13 @@
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 {/block}
 
-{block 'layout_head' append}
-    <script>
-        ls.lang.load({json var = $aLangJs});
-        ls.registry.set({json var = $aVarsJs});
-    </script>
-{/block}
-
 {block 'layout_body'}
+    <script>
+        var domReady = function(callback) {
+            document.readyState === "interactive" || document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+        };
+    </script>
+
     <div class="p-docs-layout-container">
         <div class="p-docs-layout-header-home">
             <a href="{Router::GetPath('/')}" target="_blank">Перейти на сайт</a>
